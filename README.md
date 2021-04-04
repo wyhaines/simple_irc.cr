@@ -1,2 +1,39 @@
-# simple_irc.cr
-This is a simple IRC protocol implementation. No bundled bot capabilities or anything fancy. Just the basics, made easy to use.
+# simple_irc
+
+TODO: Write a description here
+
+## Installation
+
+1. Add the dependency to your `shard.yml`:
+
+   ```yaml
+   dependencies:
+     simple_irc:
+       github: your-github-user/simple_irc
+   ```
+
+2. Run `shards install`
+
+## Usage
+
+```crystal
+require "simple_irc"
+```
+
+TODO: Write usage instructions here
+
+## Development
+
+TODO: Write development instructions here
+
+## Contributing
+
+1. Fork it (<https://github.com/your-github-user/simple_irc/fork>)
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
+## Contributors
+
+- [Kirk Haines](https://github.com/your-github-user) - creator and maintainer
