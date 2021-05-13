@@ -13,7 +13,7 @@ module SimpleIrc
     end
 
     def connect
-      tcp_socket = TCPSocket.new(host, port)
+      tcp_socket = TCPSocket.new(@host, @port)
       if @ssl
         @client = OpenSSL::SSL::Socket::Client.new(tcp_socket)
       else
