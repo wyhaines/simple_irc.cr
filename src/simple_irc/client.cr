@@ -6,9 +6,13 @@ module SimpleIrc
       @channel : String,
       @host : String = "irc.chat.twitch.tv",
       @port : Int32 = 6697,
-      @ssl : Bool = true
+      @ssl : Bool = true,
+      do_connect : Bool = true
     )
+      connect if do_connect
+    end
 
+    def connect
       tcp_socket = TCPSocket.new(host, port)
       if @ssl
         @client = OpenSSL::SSL::Socket::Client.new(tcp_socket)
