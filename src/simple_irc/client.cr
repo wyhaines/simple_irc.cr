@@ -1,5 +1,6 @@
 module SimpleIrc
   class Client
+    @client : OpenSSL::SSL::Socket::Client? | TCPSocket
     def initialize(
       @token : String,
       @nick : String,
