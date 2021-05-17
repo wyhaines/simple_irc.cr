@@ -1,6 +1,9 @@
+require "openssl"
+
 module SimpleIrc
   class Client
-    @client : OpenSSL::SSL::Socket::Client? | TCPSocket
+    getter client : OpenSSL::SSL::Socket::Client? | TCPSocket
+
     def initialize(
       @token : String,
       @nick : String,
@@ -10,7 +13,11 @@ module SimpleIrc
       @ssl : Bool = true,
       do_connect : Bool = true
     )
-      connect if do_connect
+      if do_connect
+        connect
+      else
+        @client = nil
+      end
     end
 
     def connect
@@ -23,24 +30,44 @@ module SimpleIrc
     end
 
     def authenticate
-      @client.puts("PASS #{@token}")
-      @client.puts("NICK #{@nick}")
+      @client.try do |client|
+        client.puts("PASS #{@token}")
+        client.puts("NICK #{@nick}")
+      end
     end
 
     def join
-      @client.puts("JOIN ##{@channel}")
+      @client.try do |client|
+        client.puts("JOIN ##{@channel}")
+      end
     end
 
     def quit
-      @client.puts("QUIT")
-      @client.flush
-      @client.close
+      @client.try do |client|
+        client.puts("QUIT")
+        client.flush
+        client.close
+      end
     end
 
     def privmsg(msg : String, *receivers) # TODO: Make it flexible with regard to receivers.
-      @client.puts("PRIVMSG ##{@channel} :#{msg}")
-      @client.flush
+      @client.try do |client|
+        client.puts("PRIVMSG ##{@channel} :#{msg}")
+        client.flush
+      end
     end
-    
+
+    def gets
+      @client.try do |client|
+        client.gets
+      end
+    end
+
+    def direct(msg)
+      @client.try do |client|
+        client.puts msg
+      end
+    end
+
   end
 end
