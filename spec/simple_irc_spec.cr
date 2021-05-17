@@ -49,7 +49,7 @@ describe SimpleIrc do
     end
 
     timeout(3) do
-      Container.connection.try(&.putsa("This is a test."))
+      Container.connection.try(&.puts("This is a test."))
       received.receive
 
       line.should eq "This is a test."
