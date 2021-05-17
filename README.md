@@ -1,5 +1,9 @@
 # simple_irc
 
+![SplayTreeMap CI](https://img.shields.io/github/workflow/status/wyhaines/simple_irc.cr/SimpleIrc%20CI?style=for-the-badge&logo=GitHub)
+[![GitHub release](https://img.shields.io/github/release/wyhaines/simple_irc.cr.svg?style=for-the-badge)](https://github.com/wyhaines/simple_irc.cr/releases)
+![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/wyhaines/simple_irc.cr/latest?style=for-the-badge)
+
 TODO: Write a description here
 
 ## Installation
@@ -37,3 +41,6 @@ TODO: Write development instructions here
 ## Contributors
 
 - [Kirk Haines](https://github.com/your-github-user) - creator and maintainer
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/wyhaines/simple_irc.cr?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/wyhaines/simple_irc.cr?style=for-the-badge)
